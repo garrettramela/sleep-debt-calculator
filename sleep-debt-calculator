@@ -42,18 +42,16 @@ const getActualSleepHours = () =>
   getSleepHours('Saturday') +
   getSleepHours('Sunday');
 
-// Arrow function that returns the ideal sleep hours for a given week.
-const getIdealSleepHours = () => {
-  let idealHours = 8;
-  return idealHours * 7;
-};
+// Single-ling arrow function with a single parameter that returns the ideal sleep hours for a
+// given week.
+const getIdealSleepHours = idealHours => idealHours * 7;
 
 // Arrow function that calculates the week's sleep surplus or deficit.
-const calculateSleepDebt = () => {
+const calculateSleepDebt = idealHours => {
   const actualSleepHours = 
   getActualSleepHours();
   const idealSleepHours =
-  getIdealSleepHours();
+  getIdealSleepHours(idealHours);
 
   if(actualSleepHours === idealSleepHours) {
     console.log('You got the perfect amount of sleep this week.')
@@ -67,4 +65,4 @@ const calculateSleepDebt = () => {
 }
 
 // Calling the final function to show the user where their weekly sleep stands.
-calculateSleepDebt();
+calculateSleepDebt(8);
