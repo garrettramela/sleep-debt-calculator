@@ -1,0 +1,70 @@
+// The following programs is a sleep debt calculator that takes someone's sleep for a given week
+// and benchmarks it against what that person should have gotten. The result is a message that lets
+// the user know if they received enough sleep.
+
+// Arrow function with switch statement defining the necessary sleep hours for each day.
+const getSleepHours = day => {
+
+switch(day) {
+  case 'Monday':
+    return 8
+    break;
+  case 'Tuesday':
+    return 8
+    break;
+  case 'Wednesday':
+    return 8
+    break;
+  case 'Thursday':
+    return 8
+    break;
+  case 'Friday':
+    return 8
+    break;
+  case 'Saturday':
+    return 8
+    break;
+  case 'Sunday':
+    return 7
+    break;
+default:
+    return "Error!"
+  }
+};
+
+//  Arrow function with an implicit return (deleting curly brackets) to aggregate total weekly sleep hours.
+const getActualSleepHours = () =>
+  getSleepHours('Monday') +
+  getSleepHours('Tuesday') +
+  getSleepHours('Wednesday') +
+  getSleepHours('Thursday') +
+  getSleepHours('Friday') +
+  getSleepHours('Saturday') +
+  getSleepHours('Sunday');
+
+// Arrow function that returns the ideal sleep hours for a given week.
+const getIdealSleepHours = () => {
+  let idealHours = 8;
+  return idealHours * 7;
+};
+
+// Arrow function that calculates the week's sleep surplus or deficit.
+const calculateSleepDebt = () => {
+  const actualSleepHours = 
+  getActualSleepHours();
+  const idealSleepHours =
+  getIdealSleepHours();
+
+  if(actualSleepHours === idealSleepHours) {
+    console.log('You got the perfect amount of sleep this week.')
+  } else if (actualSleepHours > idealSleepHours) {
+    console.log('You got ' + (actualSleepHours - idealSleepHours) + ' more hour(s) of sleep than needed.')
+  } else if (actualSleepHours < idealSleepHours) {
+    console.log('You got ' + (idealSleepHours - actualSleepHours) + ' less hour(s) of sleep than needed.') 
+  } else {
+    console.log('Error!')
+  }
+}
+
+// Calling the final function to show the user where their weekly sleep stands.
+calculateSleepDebt();
